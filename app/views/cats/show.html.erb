@@ -8,6 +8,8 @@
   <% end %>
 </ul>
 
-<a href="<%= new_cat_toy_url(@cat) %>">New Toy</a>
-
-<a href="<%= cats_url %>">Index</a>
+<ul>
+  <li><a href="<%= new_cat_toy_url(@cat) %>">New Toy</a></li>
+  <li><a href="<%= edit_cat_url(@cat) %>">Edit Cat</a></li>
+  <li><a href="<%= cats_url %>">Index</a></li>
+</ul>
