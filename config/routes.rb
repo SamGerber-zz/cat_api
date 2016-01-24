@@ -3,5 +3,9 @@ Rails.application.routes.draw do
     resources :toys, only: [:index, :new]
   end
 
-  resources :toys, only: [:create, :show, :update, :destroy]
+  resources :toys, only: [:create, :show, :update, :destroy] do
+
+  end
+
+  root to: redirect("/cats")
 end
