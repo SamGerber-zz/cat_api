@@ -20,7 +20,7 @@ class CatsController < ApplicationController
 
   def create
     # POST /cats
-    @cat = Cat.new(params[:cat].permit(:name, :skill))
+    @cat = Cat.new(cat_params)
 
     if @cat.save
       redirect_to cat_url @cat
@@ -44,14 +44,20 @@ class CatsController < ApplicationController
   end
 
   def update
-    cat = Cat.find(params[:id])
+    @cat = Cat.find(params[:id])
     # if I upload an admin attribute, this tries to set cat.admin
-    cat.update(params[:cat].permit(:name))
+    if @cat.update(cat_params)
+      redirect_to cat_url @cat
+    else
+      render :edit
+    end
   end
 
   def edit
     # /cats/:id/edit
     # show a form to edit a given object
+    @cat = Cat.find(params[:id])
+    render :edit
   end
 
   def destroy
@@ -66,5 +72,11 @@ class CatsController < ApplicationController
     # destroy the cat
     # issue redirect to /cats
     # client gets /cats again
+  end
+
+  private
+
+  def cat_params
+    params[:cat].permit(:name, :skill)
   end
 end
