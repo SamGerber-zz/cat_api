@@ -49,19 +49,33 @@ def handle_request(socket)
     if [verb, path] == ["GET", "/cats"]
       # GET /cats
       socket.gets # reads a blank line
+
+      socket.puts "HTTP/1.1 200 OK"
+      socket.puts
       socket.puts $cats.to_json
     elsif verb == "GET" && match_data2 = cat_regex.match(path)
       # GET /cats/:id
       socket.gets # reads a blank line
       cat_id = Integer(match_data2[1])
       cat = $cats.find { |cat| cat["id"] == cat_id }
+
+      socket.puts "HTTP/1.1 200 OK"
+      socket.puts
       socket.puts(cat.to_json)
     elsif verb == "DELETE" && match_data2 = cat_regex.match(path)
       # DELETE /cats/:id
       socket.gets # reads a blank line
       cat_id = Integer(match_data2[1])
-      $cats.reject! { |cat| cat["id"] == cat_id }
-      socket.puts(true.to_json)
+      cat = $cats.find { |cat| cat["id"] == cat_id }
+
+      if cat
+        $cats.delete(cat)
+        socket.puts "HTTP/1.1 200 OK"
+        socket.puts
+        socket.puts(true.to_json)
+      else
+        socket.puts "HTTP/1.1 404 Not Found"
+      end
     elsif [verb, path] == ["POST", "/cats"]
       header1 = socket.gets.chomp
       match_data2 = /Content-Length: (\d+)/.match(header1)
@@ -74,6 +88,8 @@ def handle_request(socket)
       $cats << cat
 
 
+      socket.puts "HTTP/1.1 200 OK"
+      socket.puts
       socket.puts(cat.to_json)
     elsif verb == "PATCH" && match_data2 = cat_regex.match(path)
       header1 = socket.gets.chomp
@@ -89,6 +105,8 @@ def handle_request(socket)
         cat[key] = value
       end
 
+      socket.puts "HTTP/1.1 200 OK"
+      socket.puts
       socket.puts cat.to_json
     end
     socket.close
