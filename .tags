@@ -59,3 +59,20 @@ div	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/public
 div	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/public/500.html	/^    <div>$/;"	function	line:60
 h	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/public/500.html	/^      <h1>We're sorry, but something went wrong.<\/h1>$/;"	function	line:61
 p	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/public/500.html	/^    <p>If you are the application owner check the logs for more information.<\/p>$/;"	function	line:63
+ToysController	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/controllers/toys_controller.rb	/^class ToysController < ApplicationController$/;"	class	line:1
+index	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/controllers/toys_controller.rb	/^  def index$/;"	method	line:2	class:ToysController
+show	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/controllers/toys_controller.rb	/^  def show$/;"	method	line:7	class:ToysController
+create	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/controllers/toys_controller.rb	/^  def create$/;"	method	line:11	class:ToysController
+destroy	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/controllers/toys_controller.rb	/^  def destroy$/;"	method	line:26	class:ToysController
+update	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/controllers/toys_controller.rb	/^  def update$/;"	method	line:32	class:ToysController
+toy_params	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/controllers/toys_controller.rb	/^  def toy_params$/;"	method	line:45	class:ToysController
+h	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/views/cats/index.html	/^<h1>All The Cats!<\/h1>$/;"	function	line:1
+ul	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/views/cats/index.html	/^<ul>$/;"	function	line:3
+li	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/views/cats/index.html	/^  <li>Cats would be listed here.<\/li>$/;"	function	line:4
+li	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/views/cats/index.html	/^  <li>This would be another cat<\/li>$/;"	function	line:5
+CatsController	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/controllers/cats_controller.rb	/^class CatsController < ApplicationController$/;"	class	line:1
+index	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/controllers/cats_controller.rb	/^  def index$/;"	method	line:3	class:CatsController
+show	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/controllers/cats_controller.rb	/^  def show$/;"	method	line:9	class:CatsController
+create	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/controllers/cats_controller.rb	/^  def create$/;"	method	line:15	class:CatsController
+update	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/controllers/cats_controller.rb	/^  def update$/;"	method	line:26	class:CatsController
+destroy	/Users/samgerber/Documents/app_academy/course_work/w4/ned_demo/CatApi/app/controllers/cats_controller.rb	/^  def destroy$/;"	method	line:32	class:CatsController
