@@ -2,17 +2,19 @@ class CatsController < ApplicationController
 
   def index
     # GET /cats
-    render json: Cat.all
+    @cats = Cat.all
+    render :index
   end
 
   def show
     # GET /cats/<:id>
-    render json: Cat.find(params[:id])
+    @cat = Cat.find(params[:id])
+    render :show
   end
 
   def create
     # POST /cats
-    cat = Cat.new(name: params[:cat][:name])
+    cat = Cat.new(params[:cat].permit(:name))
 
     if cat.save
       render json: cat
@@ -22,10 +24,15 @@ class CatsController < ApplicationController
   end
 
   def update
-    # ...
+    cat = Cat.find(params[:id])
+    # if I upload an admin attribute, this tries to set cat.admin
+    cat.update(params[:cat].permit(:name))
   end
 
   def destroy
+    # if !current_cat_user.admin
+    #   raise "error"
+    # end
     # ...
   end
 end
