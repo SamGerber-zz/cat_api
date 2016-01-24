@@ -4,6 +4,13 @@
   <% @cats.each do |cat| %>
     <li>
       <a href="<%= cat_url(cat) %>"><%=cat.name%></a>
+
+      <form action="<%= cat_url(cat)%>" method="post">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Destroy Cat">
+      </form>
     </li>
   <%end%>
 </ul>
+
+<a href="<%= new_cat_url %>">New Cat</a>
