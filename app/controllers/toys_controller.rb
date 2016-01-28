@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: toys
+#
+#  id         :integer          not null, primary key
+#  cat_id     :integer          not null
+#  name       :string           not null
+#  ttype      :string           not null
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class ToysController < ApplicationController
   def index
     cat = Cat.find(params[:cat_id])
