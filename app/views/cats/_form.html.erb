@@ -2,6 +2,13 @@
 <% form_method = cat.persisted? ? "PATCH" : "POST" %>
 <% submit_text = cat.persisted? ? "Update Cat!" : "Create Cat!" %>
 
+<% unless @cat.errors.empty? %>
+  <ul>
+    <% @cat.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
 
 <form action="<%= action_url %>" method="post">
   <input type="hidden" name="_method" value="<%= form_method %>">
