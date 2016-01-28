@@ -1,3 +1,14 @@
+# == Schema Information
+#
+# Table name: cats
+#
+#  id         :integer          not null, primary key
+#  name       :string           not null
+#  created_at :datetime
+#  updated_at :datetime
+#  skill      :string
+#
+
 class CatsController < ApplicationController
 
   def index
@@ -23,6 +34,7 @@ class CatsController < ApplicationController
     @cat = Cat.new(cat_params)
 
     if @cat.save
+      flash[:notice] = "Created #{@cat.name}"
       redirect_to cat_url @cat
     else
       render :new
@@ -63,6 +75,7 @@ class CatsController < ApplicationController
   def destroy
     cat = Cat.find(params[:id])
     cat.destroy
+    flash[:notice] = "Deleted #{cat.name}"
     redirect_to cats_url
 
     # GET /cats
